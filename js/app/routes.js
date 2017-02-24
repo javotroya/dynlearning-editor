@@ -19,10 +19,10 @@ App.Router.Main = Uit.Router.extend({
             $('.section--main > .row').prepend(data);
             $('body').on('click', '.directory a', function(e){
                 e.preventDefault();
-                $(this).next().slideToggle();
+                $(this).siblings('ul').slideToggle();
             });
         });
-        $.get('/_inc/editor.html', function(data){
+       /* $.get('/_inc/editor.html', function(data){
             $('.section--main > .row').prepend(data);
             let htmlmixed = {
                 name       : "htmlmixed",
@@ -47,7 +47,7 @@ App.Router.Main = Uit.Router.extend({
                 matchTags: {bothTags: true},
                 extraKeys: {'Ctrl-Space': 'autocomplete'}
             });
-        });
+        });*/
     },
     init: function(){
         console.log(this);
