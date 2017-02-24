@@ -11,11 +11,10 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<?php include '_inc/header.php'; ?>
+
 <div class="section--main">
   <div class="row">
-	  <?php include '_inc/sidebar.php'; ?>
-	  <?php include '_inc/editor.php'; ?>
+
   </div>
 </div>
 </body>
@@ -48,28 +47,10 @@
 <script>
     let MainRouter = new App.Router.Main();
     Backbone.history.start({pushState: false});
-    let htmlmixed = {
-        name       : "htmlmixed",
-        scriptTypes: [{
-            matches: /\/x-handlebars-template|\/x-mustache/i,
-            mode   : null
-        },
-                      {
-                          matches: /(text|application)\/(x-)?vb(a|script)/i,
-                          mode   : "vbscript"
-                      }]
-    };
-    let editor    = CodeMirror.fromTextArea(document.getElementById("editor"), {
-        mode           : 'css',
-        lineNumbers    : true,
-        styleActiveLine: true,
-        matchBrackets  : true,
-        theme          : 'material',
-        lineWrapping   : true,
-        autofocus      : true,
-        autoCloseBrackets: true,
-        matchTags: {bothTags: true},
-        extraKeys: {'Ctrl-Space': 'autocomplete'}
+    $(window).on('load', function(){
+        $('[data-toggle="tooltip"]').tooltip({
+            container: 'body'
+        });
     });
 </script>
 </html>
